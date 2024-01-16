@@ -1,0 +1,42 @@
+### 2.1) get a new game without filtering the level
+### Read all questions with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/tests/start
+
+### 2.1) get a new game for a specific level
+
+### Read all questions with level sort
+{{baseUrl}}/tests/start?level=eas
+
+
+### 2.2) create a new game result for a user
+
+### Read all results
+GET {{baseUrl}}/tests/result
+
+### Create Game result
+POST {{baseUrl}}/tests
+Content-Type: application/json
+
+{
+    "username":"test",
+    "score": 1
+}
+
+#### 2.2.a) create the game result by providing a correct score for a user
+### Create Game result
+POST {{baseUrl}}/tests
+Content-Type: application/json
+
+{
+    "score": 2
+}
+#### 2.2.b) try to create the game result by provinding a wrong score for a user
+### Create Game result
+POST {{baseUrl}}/tests
+Content-Type: application/json
+
+{
+    "username":"test",
+    "score": -1
+}
